@@ -34,9 +34,6 @@ def main():
   # do shit
   rots = file_as_rotations("rotos.md")
 
-  print(rots)
-
-
   print("Num Zeroes", get_number_of_zeroes(rots))
 
 
