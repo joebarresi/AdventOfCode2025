@@ -30,11 +30,22 @@ int get_number_of_zeroes(std::vector<int> rots) {
   int num_zeroes = 0;
 
   for (int i=0; i < rots.size(); i++) {
-    curSpot += rots.at(i);
-
-    if (curSpot % 100 == 0) {
-      num_zeroes += 1;
+    int fullRotation = rots.at(i);
+    if (fullRotation > 0) {
+      for (int j=1; j < fullRotation + 1; j++) {
+        if (((curSpot + j) % 100) == 0) {
+          num_zeroes += 1;
+        }
+      }
+    } else {
+      for (int j=1; j < -1 * fullRotation + 1; j++) {
+        if (((curSpot - j) % 100) == 0) {
+          num_zeroes += 1;
+        }
+      }
     }
+
+    curSpot += rots.at(i);
   }
 
   return num_zeroes;
